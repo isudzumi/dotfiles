@@ -58,7 +58,7 @@ endif
 "Ç±Ç±Ç©ÇÁîqéÿ->http://www.kawaz.jp/pukiwiki/?vim
 "-------------------------------------------------------------------------
 
-set tabstop=4
+"set tabstop=4
 set showmode
 set ruler
 "çsêîï\é¶
