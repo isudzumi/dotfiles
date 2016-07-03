@@ -76,6 +76,8 @@ set nobackup
 set autoindent
 "キーマッピング
 imap <C-f> <esc>
+nnoremap ; :
+nnoremap : ;
 
 "dein setting-----------------------------
 if !&compatible
