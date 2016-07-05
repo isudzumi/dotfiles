@@ -36,3 +36,6 @@ augroup END
 autocmd filetypeplugin FileType * call s:AfterFTPlugin()
 function! s:AfterFTPlugin()
 endfunction
+autocmd filetypeplugin FileType * call s:AfterFTPlugin()
+function! s:AfterFTPlugin()
+endfunction
