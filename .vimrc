@@ -67,7 +67,8 @@ set nu
 set clipboard=unnamed
 "_viminfoファイルの保存先
 set viminfo+=n$VIM/_viminfo
-
+"swapファイルを作成しない
+set noswapfile
 "undoファイルを作成しない
 set noundofile
 "バックアップファイルを作成しない
@@ -89,7 +90,6 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-" dein settings {{{
 " dein自体の自動インストール
 let s:cache_home = $HOME . expand('/dotfiles/.vim')
 let s:dein_dir = s:cache_home . expand('/dein')
