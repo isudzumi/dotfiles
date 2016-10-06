@@ -1,2 +1,5 @@
 #dein cache
-./.vim/dein/*
+dein/
+
+#execution file
+*.exe
