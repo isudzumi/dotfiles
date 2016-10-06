@@ -94,7 +94,7 @@ function! dein#autoload#_on_default_event(event) abort "{{{
   let plugins += filter(copy(lazy_plugins),
         \ "!empty(filter(copy(get(v:val, 'on_path', [])),
         \                'path =~? v:val'))")
-  sandbox let plugins += filter(copy(lazy_plugins),
+  let plugins += filter(copy(lazy_plugins),
         \ "!has_key(v:val, 'on_event')
         \  && has_key(v:val, 'on_if') && eval(v:val.on_if)")
 
@@ -108,7 +108,7 @@ function! dein#autoload#_on_event(event, plugins) abort "{{{
     return
   endif
 
-  sandbox let plugins = filter(copy(lazy_plugins),
+  let plugins = filter(copy(lazy_plugins),
         \ "!has_key(v:val, 'on_if') || eval(v:val.on_if)")
   call s:source_events(a:event, plugins)
 endfunction"}}}
@@ -131,7 +131,7 @@ endfunction"}}}
 function! dein#autoload#_on_func(name) abort "{{{
   let function_prefix = substitute(a:name, '[^#]*$', '', '')
   if function_prefix =~# '^dein#'
-        \ || function_prefix ==# 'vital#'
+        \ || function_prefix =~# '^vital#'
         \ || has('vim_starting')
     return
   endif
