@@ -109,7 +109,8 @@ function! dein#install#_reinstall(plugins) abort "{{{
     endif
   endfor
 
-  call dein#install#_update(dein#util#_convert2list(a:plugins), 0, 1)
+  call dein#install#_update(dein#util#_convert2list(a:plugins),
+        \ 'install', dein#install#_is_async())
 endfunction"}}}
 function! dein#install#_direct_install(repo, options) abort "{{{
   let options = copy(a:options)
@@ -380,6 +381,8 @@ endfunction"}}}
 function! dein#install#_each(cmd, plugins) abort "{{{
   let plugins = filter(dein#util#_get_plugins(a:plugins), 'isdirectory(v:val.path)')
 
+  let global_context_save = s:global_context
+
   let context = s:init_context(plugins, 'each', 0)
   call s:init_variables(context)
 
@@ -405,6 +408,7 @@ function! dein#install#_each(cmd, plugins) abort "{{{
     call s:nonskip_error(message)
     return 1
   finally
+    let s:global_context = global_context_save
     call dein#install#_cd(cwd)
   endtry
 endfunction"}}}
@@ -1082,6 +1086,7 @@ function! s:check_output(context, process) abort "{{{
           \   .plugin.name.'" now?', "yes\nNo", 2) == 1
       " Remove.
       call dein#install#_rm(plugin.path)
+      call add(a:context.errored_plugins, plugin)
     else
       call add(a:context.synced_plugins, plugin)
     endif

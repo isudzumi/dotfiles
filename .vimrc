@@ -91,7 +91,7 @@ augroup MyAutoCmd
 augroup END
 
 " dein自体の自動インストール
-let s:cache_home = $HOME . expand('/dotfiles/.vim')
+let s:cache_home = $VIM . expand('/.vim')
 let s:dein_dir = s:cache_home . expand('/dein')
 let s:dein_repo_dir = s:dein_dir . expand('/repos/github.com/Shougo/dein.vim')
 if !isdirectory(s:dein_repo_dir)
