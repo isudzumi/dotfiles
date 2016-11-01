@@ -7,3 +7,6 @@ repo = 'Shougo/unite.vim'
 
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
+
+[[plugins]]
+repo = 'tomasr/molokai'

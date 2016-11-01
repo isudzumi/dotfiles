@@ -120,5 +120,5 @@ endif
 
 "End dein Scripts-------------------------
 
-"ハイライト
+colorscheme molokai
 syntax on
