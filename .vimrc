@@ -208,5 +208,6 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 let g:quickrun_config = {
 \	"cpp/g++" : {
 \		"cmdopt" : "-std=c++11",
+\		"hook/time/enable" : 1,
 \	},
 \ }
