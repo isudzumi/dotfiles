@@ -204,3 +204,9 @@ endif
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 "End neocomplete setting-------------------------------------------
+
+let g:quickrun_config = {
+\	"cpp/g++" : {
+\		"cmdopt" : "-std=c++11",
+\	},
+\ }
