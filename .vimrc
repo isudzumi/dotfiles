@@ -205,9 +205,12 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 
 "End neocomplete setting-------------------------------------------
 
+:command Qr QuickRun
+
 let g:quickrun_config = {
 \	"cpp/g++" : {
-\		"cmdopt" : "-std=c++11",
+\		"command": "g++",
+\		"cmdopt" : "-std=c++14",
 \		"hook/time/enable" : 1,
 \	},
 \ }
