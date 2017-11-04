@@ -9,6 +9,10 @@ repo = 'Shougo/vimfiler.vim'
 
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
+if = "has('lua')"
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
 
 [[plugins]]
 repo = 'tomasr/molokai'
