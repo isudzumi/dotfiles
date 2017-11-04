@@ -6,6 +6,7 @@ repo = 'Shougo/unite.vim'
 
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
+depends='unite.vim'
 
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
@@ -16,6 +17,9 @@ repo = 'Shougo/neosnippet.vim'
 
 [[plugins]]
 repo = 'tomasr/molokai'
+hook_add = '''
+    set background=dark
+'''
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
