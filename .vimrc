@@ -81,21 +81,25 @@ set noundofile
 set nobackup
 "オートインデント
 set autoindent
+
+"viとの互換性を無効化する
+if !&compatible
+  set nocompatible
+endif
+
 "キーマッピング
 imap <C-f> <esc>
 nnoremap ; :
 nnoremap : ;
-
-"dein setting-----------------------------
-if !&compatible
-  set nocompatible
-endif
+set backspace=indent,eol,start
+set whichwrap=b,s,h,l,<,>,[,]
 
 " reset augroup
 augroup MyAutoCmd
   autocmd!
 augroup END
 
+"dein setting-----------------------------
 " dein自体の自動インストール
 let s:cache_home = $HOME . expand('/.vim')
 let s:dein_dir = s:cache_home . expand('/dein')
@@ -136,3 +140,6 @@ syntax on
 set cursorline
 hi CursorLineNr term=bold cterm=NONE ctermfg=224 ctermbg=NONE
 hi clear CursorLine
+
+inoremap <Char-0x07F> <BS>
+nnoremap <Char-0x07F> <BS>

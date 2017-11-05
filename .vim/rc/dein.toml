@@ -24,3 +24,7 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'kana/vim-smartinput'
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
