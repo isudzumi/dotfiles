@@ -82,12 +82,12 @@ set nobackup
 "オートインデント
 set autoindent
 
-"viとの互換性を無効化する
+" viとの互換性を無効化する
 if !&compatible
   set nocompatible
 endif
 
-"キーマッピング
+" キーマッピング
 imap <C-f> <esc>
 nnoremap ; :
 nnoremap : ;
@@ -99,7 +99,6 @@ augroup MyAutoCmd
   autocmd!
 augroup END
 
-"dein setting-----------------------------
 " dein自体の自動インストール
 let s:cache_home = $HOME . expand('/.vim')
 let s:dein_dir = s:cache_home . expand('/dein')
@@ -124,7 +123,7 @@ if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 
-"End dein Scripts-------------------------
+" End dein Scripts-------------------------
 
 let g:quickrun_config = {
 \	"cpp" : {
@@ -141,5 +140,6 @@ set cursorline
 hi CursorLineNr term=bold cterm=NONE ctermfg=224 ctermbg=NONE
 hi clear CursorLine
 
+" ConEmu上でterm=xtermをすると、BackSpaceがdeleteの挙動をする問題の修正
 inoremap <Char-0x07F> <BS>
 nnoremap <Char-0x07F> <BS>
