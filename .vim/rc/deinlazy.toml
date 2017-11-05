@@ -99,3 +99,12 @@ repo = 'Shougo/vimfiler.vim'
 depends='unite.vim'
 on_if = "isdirectory(bufname('%'))"
 
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = 'python'
+if = "has('conceal')"
+# インストールする時の設定
+# hook_post_update = '''
+#    s:jedi_vim_dir = g:rc_dir + expand('../dein/repos/github.com/davidhalter/jedi-vim')
+#    call system("git --work-tree=s:jedi_vim_dir submodule update --init")
+# '''
