@@ -110,7 +110,7 @@ let &runtimepath = s:dein_repo_dir .",". &runtimepath
 " プラグイン読み込み＆キャッシュ作成
 let g:rc_dir = fnamemodify(expand('<sfile>'), ':h').expand('/.vim/rc')
 let s:toml_file =  g:rc_dir . '/dein.toml'
-let s:lazy_toml_file = g:rc_dir . '/deinlazy.toml'
+let s:lazy_toml_file = g:rc_dir . '/dein_lazy.toml'
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
   call dein#load_toml(s:toml_file, {'lazy': 0})
@@ -133,7 +133,16 @@ hi CursorLineNr term=bold cterm=NONE ctermfg=224 ctermbg=NONE
 hi clear CursorLine
 
 " ConEmu上でterm=xtermをすると、BackSpaceがdeleteの挙動をする問題の修正
-if has('win32') && &term=='xterm'
+if (has('win32') || has('win64')) && &term=='xterm'
     inoremap <Char-0x07F> <BS>
     nnoremap <Char-0x07F> <BS>
 endif
+
+" Python有効化
+function! ActivatePython()
+    if has('win32') || has('win64')
+        set runtimepath+=$VIM
+        set pythonthreedll=python36.dll " Pythonのディレクトリにパスを通していた場合
+    endif
+endfunction
+
