@@ -125,14 +125,6 @@ endif
 
 " End dein Scripts-------------------------
 
-let g:quickrun_config = {
-\	"cpp" : {
-\		"command": "g++",
-\		"cmdopt" : "-std=c++14",
-\		"hook/time/enable" : 1,
-\	},
-\ }
-
 " 行番号ハイライト
 set background=dark
 syntax on
