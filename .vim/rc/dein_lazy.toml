@@ -108,6 +108,6 @@ if = "has('conceal') && (has('python') || has('python3'))"
 #    s:jedi_vim_dir = g:rc_dir + expand('../dein/repos/github.com/davidhalter/jedi-vim')
 #    call system("git --work-tree=s:jedi_vim_dir submodule update --init")
 # '''
-hook_source = '''
-    call ActivatePython()
-'''
+# hook_source = '''
+#   call ActivatePython()
+# '''

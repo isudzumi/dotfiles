@@ -139,10 +139,8 @@ if (has('win32') || has('win64')) && &term=='xterm'
 endif
 
 " Python有効化
-function! ActivatePython()
-    if has('win32') || has('win64')
-        set runtimepath+=$VIM
-        set pythonthreedll=python36.dll " Pythonのディレクトリにパスを通していた場合
-    endif
-endfunction
+if has('win32') || has('win64')
+    set runtimepath+=$VIM
+    set pythonthreedll=python36.dll " Pythonのディレクトリにパスを通していた場合
+endif
 
