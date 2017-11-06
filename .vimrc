@@ -132,8 +132,8 @@ set cursorline
 hi CursorLineNr term=bold cterm=NONE ctermfg=224 ctermbg=NONE
 hi clear CursorLine
 
-" ConEmu上でterm=xtermをすると、BackSpaceがdeleteの挙動をする問題の修正
-if (has('win32') || has('win64')) && &term=='xterm'
+" ConEmu上でBackSpaceがdeleteの挙動をする問題の修正
+if has('win32') || has('win64')
     inoremap <Char-0x07F> <BS>
     nnoremap <Char-0x07F> <BS>
 endif
