@@ -1,4 +1,4 @@
-"" 文字コードの自動認識
+" 文字コードの自動認識
 if &encoding !=# 'utf-8'
   set encoding=japan
   set fileencoding=japan
@@ -70,7 +70,11 @@ set fileencoding=utf-8
 "行数表示
 set nu
 "クリップボードを使う
-set clipboard=unnamed
+if !has('nvim')
+    set clipboard=unnamed
+else
+    set clipboard+=unnamedplus
+endif
 "_viminfoファイルの保存先
 set viminfo+=n$VIM/_viminfo
 "swapファイルを作成しない
@@ -108,13 +112,16 @@ if !isdirectory(s:dein_repo_dir)
 endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
 " プラグイン読み込み＆キャッシュ作成
-let g:rc_dir = fnamemodify(expand('<sfile>'), ':h').expand('/.vim/rc')
+let g:rc_dir = s:cache_home . expand('/rc')
 let s:toml_file =  g:rc_dir . '/dein.toml'
 let s:lazy_toml_file = g:rc_dir . '/dein_lazy.toml'
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
   call dein#load_toml(s:toml_file, {'lazy': 0})
   call dein#load_toml(s:lazy_toml_file, {'lazy': 1})
+  if has('nvim')
+    call dein#load_toml(s:nvim_toml_file, {'lazy': 1})
+  endif
   call dein#end()
   call dein#save_state()
 endif
