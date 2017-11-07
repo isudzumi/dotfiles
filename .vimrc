@@ -115,6 +115,7 @@ let &runtimepath = s:dein_repo_dir .",". &runtimepath
 let g:rc_dir = s:cache_home . expand('/rc')
 let s:toml_file =  g:rc_dir . '/dein.toml'
 let s:lazy_toml_file = g:rc_dir . '/dein_lazy.toml'
+let s:nvim_toml_file = g:rc_dir . '/dein_nvim.toml'
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
   call dein#load_toml(s:toml_file, {'lazy': 0})
