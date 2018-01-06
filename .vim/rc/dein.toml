@@ -60,3 +60,11 @@ repo = 'kana/vim-smartinput'
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+hook_add = '''
+    set laststatus=2
+    let g:lightline = {
+        \   'colorscheme': 'powerline',
+        \   }
+'''
