@@ -99,11 +99,13 @@ repo = 'Shougo/vimfiler.vim'
 depends='unite.vim'
 on_if = "isdirectory(bufname('%'))"
 
+# python
+
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
 if = "has('conceal') && (has('python') || has('python3'))"
-# ƒCƒ“ƒXƒg[ƒ‹‚·‚é‚Ìİ’è
+# ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹æ™‚ã®è¨­å®š
 # hook_post_update = '''
 #    s:jedi_vim_dir = g:rc_dir + expand('../dein/repos/github.com/davidhalter/jedi-vim')
 #    call system("git --work-tree=s:jedi_vim_dir submodule update --init")
@@ -111,3 +113,55 @@ if = "has('conceal') && (has('python') || has('python3'))"
 # hook_source = '''
 #   call ActivatePython()
 # '''
+hook_add = '''
+    autocmd FileType python setlocal omnifunc=jedi#completions
+    let g:jedi#completions_enabled = 0
+    let g:jedi#auto_vim_configuration = 0
+'''
+
+# javascript
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = 'javascript'
+hook_add = '''
+    let g:user_emmet_mode = 'iv'
+    let g:user_emmet_leader_key = '<C-Y>'
+    let g:use_emmet_complete_tag = 1
+    let g:user_emmet_settings = {
+        \ 'lang' : 'ja',
+        \ 'html' : {
+        \   'filters' : 'html',
+        \ },
+        \ 'css' : {
+        \   'filters' : 'fc',
+        \ },
+        \}
+
+    augroup EmmitVim
+        autocmd!
+        autocmd FileType * let g:user_emmet_settings.indentation = '  '[:&tabstop]
+    augroup END
+
+'''
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'MaxMEllon/vim-jsx-pretty'
+on_ft = 'javascript'
+
+# syntax check
+
+[[plugins]]
+repo = 'w0rp/ale'
+if = "has('job') && has('channel') && has('timers')"
+hook_add = '''
+    let g:ale_fixers = {
+    \   'javascript' : ['eslint'],
+    \   'cpp' : ['cpplint'],
+    \ }
+    let g:ale_lint_on_text_changed = 0
+'''
