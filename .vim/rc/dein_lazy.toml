@@ -8,7 +8,7 @@ on_source = ['unite.vim', 'vimshell.vim']
 
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
-if = "has('lua')"
+if = "has('lua') && !has('nvim')"
 depends = 'context_filetype.vim'
 on_event = 'InsertEnter'
 hook_source = '''
@@ -104,16 +104,12 @@ on_if = "isdirectory(bufname('%'))"
 [[plugins]]
 repo = 'davidhalter/jedi-vim'
 on_ft = 'python'
-if = "has('conceal') && (has('python') || has('python3'))"
-# インストールする時の設定
-# hook_post_update = '''
-#    s:jedi_vim_dir = g:rc_dir + expand('../dein/repos/github.com/davidhalter/jedi-vim')
-#    call system("git --work-tree=s:jedi_vim_dir submodule update --init")
-# '''
-# hook_source = '''
-#   call ActivatePython()
-# '''
+if = "has('conceal') && (has('python') || has('python3')) && !has('nvim')"
 hook_add = '''
+    if !dein#tap('jedi-vim') 
+        s:jedi_vim_dir = g:rc_dir + expand('../dein/repos/github.com/davidhalter/jedi-vim')
+        call system("git --work-tree=s:jedi_vim_dir submodule update --init")
+    endif
     autocmd FileType python setlocal omnifunc=jedi#completions
     let g:jedi#completions_enabled = 0
     let g:jedi#auto_vim_configuration = 0

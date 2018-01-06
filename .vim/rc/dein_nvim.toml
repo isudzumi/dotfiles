@@ -1,0 +1,7 @@
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+if = "(has('python') || has('python3'))"
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+if = "has('python') || has('python3')"
