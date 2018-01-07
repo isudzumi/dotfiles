@@ -58,6 +58,11 @@ endif
 "ここから拝借->http://www.kawaz.jp/pukiwiki/?vim
 "-------------------------------------------------------------------------
 
+" viとの互換性を無効化する
+if !&compatible
+  set nocompatible
+endif
+
 "タブ設定
 set expandtab
 set tabstop=4
@@ -73,10 +78,13 @@ set nu
 if !has('nvim')
     set clipboard=unnamed
 else
+    set clipboard=unnamed
     set clipboard+=unnamedplus
 endif
 "_viminfoファイルの保存先
-set viminfo+=n$VIM/_viminfo
+if has('win32') || has('win64')
+    set viminfo+=n$VIM/_viminfo
+endif
 "swapファイルを作成しない
 set noswapfile
 "undoファイルを作成しない
@@ -85,11 +93,6 @@ set noundofile
 set nobackup
 "オートインデント
 set autoindent
-
-" viとの互換性を無効化する
-if !&compatible
-  set nocompatible
-endif
 
 " キーマッピング
 imap <C-f> <esc>
