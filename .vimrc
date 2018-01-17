@@ -98,6 +98,7 @@ set autoindent
 imap <C-f> <esc>
 nnoremap ; :
 nnoremap : ;
+cnoremap <C-b> <C-v><C-m>
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
 
