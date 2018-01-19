@@ -148,6 +148,7 @@ hi clear CursorLine
 if has('win32') || has('win64')
     inoremap <Char-0x07F> <BS>
     nnoremap <Char-0x07F> <BS>
+    cnoremap <Char-0x07F> <BS>
 endif
 
 " Python有効化
