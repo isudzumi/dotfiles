@@ -115,5 +115,6 @@ fi
 
 alias vi=nvim
 alias ls='ls -a'
+alias cls='clear'
 EDITOR=nvim
 
