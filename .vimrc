@@ -96,8 +96,12 @@ set autoindent
 
 " キーマッピング
 imap <C-f> <esc>
+inoremap <C-;> <C-o>A
+inoremap <C-/> <C-o>a
 nnoremap ; :
 nnoremap : ;
+nnoremap <C-m> <C-v>
+nnoremap <C-l> <C-w>
 cnoremap <C-b> <C-v><C-m>
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
@@ -112,7 +116,9 @@ let s:cache_home = $HOME . expand('/.vim')
 let s:dein_dir = s:cache_home . expand('/dein')
 let s:dein_repo_dir = s:dein_dir . expand('/repos/github.com/Shougo/dein.vim')
 if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+  if executable('git')
+    call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+  endif
 endif
 let &runtimepath = s:dein_repo_dir .",". &runtimepath
 " プラグイン読み込み＆キャッシュ作成
@@ -152,7 +158,7 @@ if has('win32') || has('win64')
 endif
 
 " Python有効化
-if has('win32') || has('win64')
+if (has('win32') || has('win64')) && executable('python')
     set runtimepath+=$VIM
     set pythonthreedll=python36.dll " Pythonのディレクトリにパスを通していた場合
 endif
