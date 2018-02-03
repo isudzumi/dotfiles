@@ -89,6 +89,13 @@ repo = 'Shougo/neosnippet.vim'
 depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_event = 'InsertCharPre'
 on_ft = 'snippet'
+hook_add = '''
+    imap <C-k> <Plug>(neosnippet_expand_or_jump)
+    smap <C-k> <Plug>(neosnippet_expand_or_jump)
+    imap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>" 
+    smap <expr><TAB> neosnippet#expandable() <Bar><bar> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+    let g:neosnippet#snippets_directory = '~/.vim/rc/'
+'''
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
@@ -154,9 +161,10 @@ on_ft = 'javascript'
 [[plugins]]
 repo = 'justmao945/vim-clang'
 on_ft = 'cpp'
+if = "executable('clang')"
 hook_add = '''
     let g:clang_c_options = '-std=c11'
-    let g:clang_cpp_options = '-std=c++1z -stdlib=libc++ -pedantic-errors'
+    let g:clang_cpp_options = '-std=c++1z'
     let g:clang_format_auto = 1
     let g:clang_format_style = 'Google'
     let g:clang_check_syntax_auto = 1
