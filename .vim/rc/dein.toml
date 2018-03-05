@@ -24,6 +24,10 @@ hook_add = '''
     \		"command": "g++",
     \		"cmdopt" : "-std=c++14",
     \	},
+    \   'rust': {
+    \      'exec': ['%c %o %s', '%s:p:r %a'],
+    \      'tempfile': 'tmp.rs',
+    \   },
     \ }
 
     let g:quickrun_config = get(g:, 'quickrun_config', {})

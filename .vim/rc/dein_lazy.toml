@@ -182,3 +182,24 @@ hook_add = '''
     \ }
     let g:ale_lint_on_text_changed = 0
 '''
+
+# rust
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+on_ft = 'rust'
+if = "executable('rustfmt')"
+hook_add = '''
+    let g:rustfmt_autosave = 1
+    let g:rustfmt_command = 'rustfmt'
+'''
+
+[[plugins]]
+repo = 'racer-rust/vim-racer'
+on_ft = 'rust'
+if = "executable('racer')"
+hook_add = '''
+    if has('win32') || has('win64')
+        let RUST_SRC_PATH = expand("$HOME/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src/")
+    endif
+'''
