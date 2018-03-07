@@ -203,3 +203,26 @@ hook_add = '''
         let RUST_SRC_PATH = expand("$HOME/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src/")
     endif
 '''
+
+# toml
+
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+# markdown
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = 'markdown'
+hook_add = '''
+    let g:previm_open_cmd = 'start'
+    nnoremap <silent> <C-p> :PrevimOpen<CR>
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+on_ft = 'toml'
