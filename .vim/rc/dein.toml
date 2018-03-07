@@ -25,8 +25,9 @@ hook_add = '''
     \		"cmdopt" : "-std=c++14",
     \	},
     \   'rust': {
-    \      'exec': ['%c %o %s', '%s:p:r %a'],
-    \      'tempfile': 'tmp.rs',
+    \       'exec': ['%c %o %s', '%s:p:r %a'],
+    \       'tempfile': 'tmp.rs',
+    \       'hook/sweep/files': ['%S:p:r', '%S:p:r.pdb', '%S:p:r.exe', 'tmp.pdb' ,'tmp.exe'],
     \   },
     \ }
 
