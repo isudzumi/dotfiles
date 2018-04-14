@@ -116,4 +116,3 @@ fi
 alias vi=nvim
 alias cls='clear'
 EDITOR=nvim
-

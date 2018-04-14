@@ -192,6 +192,7 @@ if = "executable('rustfmt')"
 hook_add = '''
     let g:rustfmt_autosave = 1
     let g:rustfmt_command = 'rustfmt'
+    let g:rustc_path = expand("$HOME/.cargo/bin/rustc")
 '''
 
 [[plugins]]
@@ -200,7 +201,9 @@ on_ft = 'rust'
 if = "executable('racer')"
 hook_add = '''
     if has('win32') || has('win64')
-        let RUST_SRC_PATH = expand("$HOME/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src/")
+        set hidden
+        let g:racer_cmd = expand("$HOME/.cargo/bin/racer")
+        let $RUST_SRC_PATH = expand("$HOME/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src/")
     endif
 '''
 
@@ -214,6 +217,12 @@ on_ft = 'toml'
 [[plugins]]
 repo = 'plasticboy/vim-markdown'
 on_ft = 'markdown'
+hook_add = '''
+    let g:vim_markdown_folding_level = 3
+    let g:vim_markdown_folding_disabled = 1
+    let g:vim_markdown_no_default_key_mappings = 1
+    set nofoldenable
+'''
 
 [[plugins]]
 repo = 'kannokanno/previm'
