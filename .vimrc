@@ -158,7 +158,7 @@ if has('win32') || has('win64')
 endif
 
 " Python有効化
-if (has('win32') || has('win64')) && executable('python')
+if (has('win32') || has('win64')) && executable('python') && !has('nvim')
     set runtimepath+=$VIM
     set pythonthreedll=python36.dll " Pythonのディレクトリにパスを通していた場合
 endif
