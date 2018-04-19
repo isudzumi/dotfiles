@@ -9,3 +9,4 @@
 	cancel = reset --soft HEAD^
 	b = branch
 	co = checkout
+    com = checkout master
