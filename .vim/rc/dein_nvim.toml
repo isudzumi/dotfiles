@@ -5,3 +5,14 @@ if = "(has('python') || has('python3'))"
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('python') || has('python3')"
+hook_add="""
+    let g:deoplete#enable_at_startup = 1
+"""
+
+[[plugins]]
+repo = 'zchee/deoplete-jedi'
+on_ft='python'
+if = "(has('python') || has('python3')) && has('nvim')"
+hook_post_update = """
+    call system("git submodule update --init")
+"""

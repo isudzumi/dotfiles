@@ -125,14 +125,16 @@ let &runtimepath = s:dein_repo_dir .",". &runtimepath
 let g:rc_dir = s:cache_home . expand('/rc')
 let s:toml_file =  g:rc_dir . '/dein.toml'
 let s:lazy_toml_file = g:rc_dir . '/dein_lazy.toml'
-let s:nvim_toml_file = g:rc_dir . '/dein_nvim.toml'
+if has('nvim')
+    let s:nvim_toml_file = g:rc_dir . '/dein_nvim.toml'
+endif
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
   call dein#load_toml(s:toml_file, {'lazy': 0})
   call dein#load_toml(s:lazy_toml_file, {'lazy': 1})
-  if has('nvim')
-    call dein#load_toml(s:nvim_toml_file, {'lazy': 1})
-  endif
+if has('nvim')
+  call dein#load_toml(s:nvim_toml_file, {'lazy': 1})
+endif
   call dein#end()
   call dein#save_state()
 endif
@@ -161,5 +163,9 @@ endif
 if (has('win32') || has('win64')) && executable('python') && !has('nvim')
     set runtimepath+=$VIM
     set pythonthreedll=python36.dll " Pythonのディレクトリにパスを通していた場合
+elseif has('nvim')
+    if !has('python3')
+        call system("pip3 install neovim")
+    endif
 endif
 
