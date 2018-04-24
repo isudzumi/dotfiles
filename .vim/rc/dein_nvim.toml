@@ -1,6 +1,10 @@
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 if = "(has('python') || has('python3'))"
+on_cmd = 'Denite'
+hook_add="""
+    let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
+"""
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
