@@ -238,5 +238,3 @@ hook_add = '''
     nnoremap <silent> <C-p> :PrevimOpen<CR>
 '''
 
-[[plugins]]
-repo = 'tyru/open-browser.vim'

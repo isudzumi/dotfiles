@@ -74,3 +74,6 @@ hook_add = '''
         \   'colorscheme': 'powerline',
         \   }
 '''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
