@@ -228,10 +228,15 @@ hook_add = '''
 repo = 'kannokanno/previm'
 on_ft = 'markdown'
 hook_add = '''
-    let g:previm_open_cmd = 'start'
+    if has('win32') || has('win64')
+        g:previm_open_cmd = 'start'
+    endif
+    augroup PrevimSettings
+    autocmd!
+    autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
+    augroup END
     nnoremap <silent> <C-p> :PrevimOpen<CR>
 '''
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
-on_ft = 'toml'
