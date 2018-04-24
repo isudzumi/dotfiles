@@ -26,5 +26,7 @@ mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
 mkdir -p ${XDG_CACHE_HOME:=$HOME/.cache}
 mkdir -p ${XDG_DATA_HOME:=$HOME/.local/share}
 
-export PYENV_ROOT=/usr/local/var/pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+eval "$(pyenv virtualenv-init -)"
