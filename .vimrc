@@ -167,5 +167,10 @@ elseif has('nvim')
     if !has('python3')
         call system("pip3 install neovim")
     endif
+    if (has('win32') || has('win64'))
+        let g:python3_host_prog = expand('~/.pyenv/versions/neovim3/bin/python')
+    elseif has('mac') && executable('pyenv')
+        let g:python3_host_prog = expand("$HOME/.pyenv/shims/python")
+    endif
 endif
 
