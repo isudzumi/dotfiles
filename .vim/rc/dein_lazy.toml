@@ -122,6 +122,11 @@ hook_add = '''
     let g:jedi#auto_vim_configuration = 0
 '''
 
+[[plugins]]
+repo = 'nvie/vim-flake8'
+on_ft = 'python'
+if = "executable('flake8')"
+
 # javascript
 
 [[plugins]]

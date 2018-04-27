@@ -75,13 +75,17 @@ repo = 'kana/vim-smartinput'
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = '''
+repo = 'vim-airline/vim-airline'
+if = "has('python3')"
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+if = "has('python3')"
+hook_add = """
     set laststatus=2
-    let g:lightline = {
-        \   'colorscheme': 'powerline',
-        \   }
-'''
+    let g:airline_powerline_fonts = 1
+    let g:airline_theme = 'powerlineish'
+"""
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
