@@ -12,3 +12,4 @@
     cob = checkout -b
     com = checkout master
     plr = pull --rebase
+    fp = !git fetch -p && git bm | grep -v \\* | xargs -I % git branch -d %
