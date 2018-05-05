@@ -13,3 +13,5 @@
     com = checkout master
     plr = pull --rebase
     fp = !git fetch -p && git bm | grep -v \\* | xargs -I % git branch -d %
+    back = reset --hard HEAD
+    last = log -n 1
