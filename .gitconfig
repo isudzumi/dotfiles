@@ -15,3 +15,8 @@
     fp = !git fetch -p && git branch --merged | grep -v \\* | xargs -I % git branch -d %
     back = reset --hard HEAD
     last = log -n 1
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

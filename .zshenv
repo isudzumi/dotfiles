@@ -5,3 +5,6 @@ mkdir -p ${XDG_DATA_HOME:=$HOME/.local/share}
 
 export NVIM_PYTHON_LOG_FILE="/tmp/log"
 
+if [ -f .env ]; then
+    source .env
+fi

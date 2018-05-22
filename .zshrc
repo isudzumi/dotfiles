@@ -15,3 +15,10 @@ alias so='source'
 export PYENV_ROOT=$HOME/.pyenv
 export PATH="$PYENV_ROOT/bin:$PATH"
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+export PATH=$PATH:/usr/local/mysql/bin
+
+# NODE settings
+eval "$(nodenv init -)"
+export NODE_ENV=development
+

@@ -80,4 +80,8 @@ hook_add = """
 """
 
 [[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+if = "has('python3')"
+
+[[plugins]]
 repo = 'tyru/open-browser.vim'
