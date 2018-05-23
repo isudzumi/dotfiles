@@ -174,3 +174,6 @@ elseif has('nvim')
     endif
 endif
 
+if (has('mac') && has('nvim'))
+    let g:node_host_prog = expand('/Users/ito/.nodenv/shims/node')
+endif
