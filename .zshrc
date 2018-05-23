@@ -22,3 +22,4 @@ export PATH=$PATH:/usr/local/mysql/bin
 eval "$(nodenv init -)"
 export NODE_ENV=development
 
+export editor=nvim
