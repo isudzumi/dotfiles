@@ -6,7 +6,7 @@ repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'tomasr/molokai'
-hook_add='''
+hook_post_source='''
     if (has('win32') && !has('gui_running') && !has('nvim') && $ConEmuANSI == 'ON')
         set term=xterm
         set t_Co=256
