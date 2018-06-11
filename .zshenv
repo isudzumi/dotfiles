@@ -5,6 +5,8 @@ mkdir -p ${XDG_DATA_HOME:=$HOME/.local/share}
 
 export NVIM_PYTHON_LOG_FILE="/tmp/log"
 
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+
 if [ -f .env ]; then
     source .env
 fi
