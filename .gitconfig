@@ -1,3 +1,6 @@
+[core]
+    editor=vi
+
 [user]
 	name = isudzumi
 	email = isudzumi@gmail.com
@@ -15,6 +18,7 @@
     fp = !git fetch -p && git branch --merged | grep -v \\* | xargs -I % git branch -d %
     back = reset --hard HEAD
     last = log -n 1
+    vup = !git checkout master && npm version patch && git push origin master --follow-tags
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
