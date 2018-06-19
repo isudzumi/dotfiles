@@ -37,11 +37,13 @@ repo = 'autozimu/LanguageClient-neovim'
 on_event = 'InsertEnter'
 rev = 'next'
 hook_post_update = """
-    call system("sh install.sh")
+    call system("bash install.sh")
 """
 hook_add = """
+    set hidden
+    set runtimepath+=~/.vim/dein/repos/github.com/autozimu/LanguageClient-neovim
     let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['javascript-typescript-langserver'],
+    \ 'javascript': ['javascript-typescript-stdio'],
     \ }
     nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
     nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
