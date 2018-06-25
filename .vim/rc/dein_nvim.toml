@@ -3,10 +3,10 @@ repo = 'Shougo/denite.nvim'
 if = "has('python3') && has('nvim')"
 on_event = 'VimEnter'
 hook_post_source="""
-    " grep to ripgrep
+    " use ripgrep
     if executable('rg')
       call denite#custom#var('file_rec', 'command',
-            \ ['rg', '--files', '--glob', '!.git'])
+            \ ['rg', '--files', '--hidden', '--glob', '!.git'])
       call denite#custom#var('grep', 'command', ['rg'])
 	endif
 
@@ -44,6 +44,7 @@ hook_add = """
     set runtimepath+=~/.vim/dein/repos/github.com/autozimu/LanguageClient-neovim
     let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'python': ['pyls'],
     \ }
     nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
     nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
