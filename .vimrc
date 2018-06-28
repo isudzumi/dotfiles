@@ -104,6 +104,7 @@ nnoremap <C-m> <C-v>
 nnoremap <C-l> <C-w>
 cnoremap <C-b> <C-v><C-m>
 nnoremap <C-t> gt
+tnoremap <C-f> <C-\><C-n>
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,]
 
