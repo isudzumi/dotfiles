@@ -13,16 +13,21 @@ hook_post_source="""
     " keymap
     nnoremap <Space>; :Denite file_rec<CR>
     nnoremap <Space>g :Denite grep<CR>
+    nnoremap <Space>o :Denite file_old<CR>
 """
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 if = "has('python3')"
 on_event = 'InsertEnter'
-hook_add="""
+hook_post_source = """
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#auto_complete_delay = 0
     let g:deoplete#file#enable_buffer_path = 1
+    let g:deoplete#sources = {
+        \ 'javascript': ['LanguageClient']
+        \ }
+    call deoplete#custom#source('LanguageClient', 'min_pattern_length', 2)
 """
 
 [[plugins]]
@@ -44,9 +49,13 @@ hook_add = """
     set hidden
     set runtimepath+=~/.vim/dein/repos/github.com/autozimu/LanguageClient-neovim
     let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'python': ['pyls'],
-    \ }
+        \ 'javascript': ['javascript-typescript-stdio'],
+        \ 'python': ['pyls'],
+        \ }
+    let g:LanguageClient_fzfContextMenu = 0
+    set completefunc=LanguageClient#complete
+    set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+
     nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
     nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
     nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
