@@ -278,3 +278,10 @@ hook_add = '''
     nnoremap <silent> <C-p> :PrevimOpen<CR>
 '''
 
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+on_event = 'VimEnter'
+hook_post_source = '''
+    nmap ]h <Plug>GitGutterNextHunk
+    nmap [h <Plug>GitGutterPrevHunk
+'''
