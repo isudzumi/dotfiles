@@ -85,3 +85,6 @@ if = "has('python3')"
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'luochen1990/rainbow'
