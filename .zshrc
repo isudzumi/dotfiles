@@ -6,7 +6,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 if [ -f $DOTDIR/.alias ]; then
-    . $DOTDIR/alias
+    . $DOTDIR/.alias
 fi
 
 export PYENV_ROOT=$HOME/.pyenv
