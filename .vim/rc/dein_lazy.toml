@@ -209,6 +209,7 @@ hook_add = '''
     \   'javascript': ['eslint'],
     \   'json' : ['prettier'],
     \   'python': ['flake8'],
+    \   'review': ['redpen'],
     \ }
 
     let g:ale_fixers = {
@@ -285,3 +286,9 @@ hook_post_source = '''
     nmap ]h <Plug>GitGutterNextHunk
     nmap [h <Plug>GitGutterPrevHunk
 '''
+
+# Re:VIEW
+
+[[plugins]]
+repo = 'moro/vim-review'
+on_ft = 'review'
