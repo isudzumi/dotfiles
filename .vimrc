@@ -180,3 +180,7 @@ if (has('mac') && has('nvim'))
     let g:node_host_prog = expand('/Users/ito/.nodenv/shims/node')
 endif
 
+aug js_gf_if_not_extension
+    au!
+    au FileType javascript set includeexpr=substitute(v:fname,'$','.js','')
+aug END
