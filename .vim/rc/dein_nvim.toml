@@ -32,13 +32,24 @@ hook_post_source = """
 repo = 'zchee/deoplete-jedi'
 on_ft = 'python'
 if = "has('python3') && has('nvim')"
+depends = ['deoplete.nvim']
 hook_post_update = """
     call system("git submodule update --init")
 """
 
 [[plugins]]
+repo = 'carlitux/deoplete-ternjs'
+on_ft = 'javascript'
+if = "has('python3') && has('nvim')"
+depends = ['deoplete.nvim']
+hook_post_update = """
+    call system("npm i -g tern")
+"""
+
+[[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 on_event = 'InsertEnter'
+depends = ['deoplete.nvim']
 rev = 'next'
 hook_post_update = """
     call system("bash install.sh")
@@ -51,7 +62,8 @@ hook_add = """
         \ 'python': ['pyls'],
         \ }
     let g:LanguageClient_fzfContextMenu = 0
-    " set completefunc=LanguageClient#complete
+    let g:LanguageClient_autoStart = 1
+    set completefunc=LanguageClient#complete
     set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
     nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
