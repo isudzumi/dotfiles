@@ -21,12 +21,10 @@ repo = 'Shougo/deoplete.nvim'
 if = "has('python3')"
 on_event = 'InsertEnter'
 hook_post_source = """
-    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_at_startup = 0
+    call deoplete#enable()
     let g:deoplete#auto_complete_delay = 0
     let g:deoplete#file#enable_buffer_path = 1
-    let g:deoplete#sources = {
-        \ 'javascript': ['LanguageClient']
-        \ }
     call deoplete#custom#source('LanguageClient', 'min_pattern_length', 2)
 """
 
@@ -53,7 +51,7 @@ hook_add = """
         \ 'python': ['pyls'],
         \ }
     let g:LanguageClient_fzfContextMenu = 0
-    set completefunc=LanguageClient#complete
+    " set completefunc=LanguageClient#complete
     set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
 
     nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>

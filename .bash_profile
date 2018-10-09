@@ -26,7 +26,18 @@ mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
 mkdir -p ${XDG_CACHE_HOME:=$HOME/.cache}
 mkdir -p ${XDG_DATA_HOME:=$HOME/.local/share}
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-eval "$(pyenv virtualenv-init -)"
+if [ `uname -s` = "Darwin" ]; then
+  export PYENV_ROOT="$HOME/.pyenv"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+  eval "$(pyenv virtualenv-init -)"
+fi
+
+if [ `uname -s` = "Linux" ]; then
+  export PATH="$HOME/.anyenv/bin:$PATH"
+  export PATH="$(dirname $(nodenv which npm)):$PATH"
+  export PATH="$(dirname $(pyenv which pip)):$PATH"
+  eval "$(anyenv init -)"
+  keychain --nogui -q ~/.ssh/id_rsa
+  source ~/.keychain/`uname -n`-sh
+fi

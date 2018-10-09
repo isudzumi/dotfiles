@@ -1,4 +1,4 @@
-export DOTDIR=~/dotfiles
+DOTDIR=$(dirname $(readlink ~/.bashrc))
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -113,5 +113,3 @@ EDITOR=nvim
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 
-# ssh
-eval $(ssh-agent -s)

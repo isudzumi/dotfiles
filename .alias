@@ -1,17 +1,25 @@
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-alias vi=nvim
+if type nvim > /dev/null 2>&1; then
+  alias vi=nvim
+  alias less=/usr/local/Cellar/neovim/0.2.2_1/share/nvim/runtime/macros/less.sh
+fi
 alias cls='clear'
-alias git=hub
-alias less=/usr/local/Cellar/neovim/0.2.2_1/share/nvim/runtime/macros/less.sh
+if type hub > /dev/null 2>&1; then
+  alias git=hub
+fi
 
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias so='source'
 
-alias grep='rg'
+if type rg > /dev/null 2>&1; then
+  alias grep='rg'
+fi
 
-alias gl='ghq look'
-alias gg='ghq get -p'
+if type ghq > /dev/null 2>&1; then
+  alias gl='ghq look'
+  alias gg='ghq get -p'
+fi
