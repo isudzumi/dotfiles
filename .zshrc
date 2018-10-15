@@ -1,4 +1,4 @@
-export DOTDIR=~/dotfiles
+DOTDIR=$(dirname $(readlink ~/.bashrc))
 
 # Prezto setting
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
