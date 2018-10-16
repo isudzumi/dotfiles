@@ -71,3 +71,7 @@ hook_add = """
     nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 """
 
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+if = "has('python3')"
+on_event = 'VimEnter'
