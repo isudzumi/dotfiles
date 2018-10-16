@@ -61,7 +61,7 @@ hook_post_update = '''
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
-repo = 'kana/vim-smartinput'
+repo = 'cohama/lexima.vim'
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
