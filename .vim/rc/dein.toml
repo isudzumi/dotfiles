@@ -86,5 +86,12 @@ if = "has('python3')"
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 
+# toml
+
+repo = 'cespare/vim-toml'
+
 [[plugins]]
 repo = 'luochen1990/rainbow'
+hook_add = """
+    let g:rainbow_active = 1
+"""

@@ -248,11 +248,6 @@ hook_add = '''
     endif
 '''
 
-# toml
-
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-
 # markdown
 
 [[plugins]]
