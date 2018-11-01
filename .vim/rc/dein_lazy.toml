@@ -287,3 +287,7 @@ hook_post_source = '''
 [[plugins]]
 repo = 'moro/vim-review'
 on_ft = 'review'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+on_event = 'VimEnter'
