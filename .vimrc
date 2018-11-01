@@ -93,6 +93,9 @@ set noundofile
 set nobackup
 "オートインデント
 set autoindent
+set incsearch
+set ignorecase
+set hlsearch
 
 " キーマッピング
 imap <C-f> <esc>
