@@ -113,3 +113,4 @@ EDITOR=nvim
 export GOPATH=~/go
 export PATH=$PATH:$GOPATH/bin
 
+export DISPLAY=localhost:0.0

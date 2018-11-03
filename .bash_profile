@@ -35,9 +35,10 @@ fi
 
 if [ `uname -s` = "Linux" ]; then
   export PATH="$HOME/.anyenv/bin:$PATH"
+  eval "$(anyenv init -)"
   export PATH="$(dirname $(nodenv which npm)):$PATH"
   export PATH="$(dirname $(pyenv which pip)):$PATH"
-  eval "$(anyenv init -)"
+  export GHQ_ROOT=~/repo
   keychain --nogui -q ~/.ssh/id_rsa
   source ~/.keychain/`uname -n`-sh
 fi
