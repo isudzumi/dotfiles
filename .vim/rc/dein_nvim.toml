@@ -59,6 +59,7 @@ hook_add = """
     set runtimepath+=~/.vim/dein/repos/github.com/autozimu/LanguageClient-neovim
     let g:LanguageClient_serverCommands = {
         \ 'javascript': ['javascript-typescript-stdio'],
+        \ 'typescript.tsx': ['javascript-typescript-stdio'],
         \ 'python': ['pyls'],
         \ }
     let g:LanguageClient_fzfContextMenu = 0

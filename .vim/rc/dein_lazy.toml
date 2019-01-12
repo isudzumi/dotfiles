@@ -207,6 +207,7 @@ on_event = ['FocusLost', 'CursorHold']
 hook_add = '''
     let g:ale_linters = {
     \   'javascript': ['eslint'],
+    \   'typescript.tsx' : ['tslint'],
     \   'json' : ['prettier'],
     \   'python': ['flake8'],
     \   'review': ['redpen'],
@@ -214,6 +215,7 @@ hook_add = '''
 
     let g:ale_fixers = {
     \   'javascript' : ['prettier'],
+    \   'typescript.tsx' : ['prettier'],
     \   'json' : ['prettier'],
     \   'cpp' : ['cpplint'],
     \   'python': ['autopep8'],
