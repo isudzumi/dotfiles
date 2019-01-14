@@ -126,8 +126,8 @@ hook_add = '''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = ['html', 'javascript']
-hook_add = '''
+on_ft = ['html', 'javascript', 'tsx']
+hook_source = '''
     let g:user_emmet_mode = 'iv'
     let g:user_emmet_leader_key = '<C-y>'
     let g:use_emmet_complete_tag = 1
@@ -140,6 +140,9 @@ hook_add = '''
         \   'filters' : 'fc',
         \ },
         \ 'javascript.jsx' : {
+        \   'extends': 'jsx',
+        \ },
+        \ 'tsx' : {
         \   'extends': 'jsx',
         \ },
         \}
@@ -157,11 +160,11 @@ on_ft = 'javascript'
 
 [[plugins]]
 repo = 'MaxMEllon/vim-jsx-pretty'
-on_ft = ['javascript', 'javascript.jsx']
+on_ft = ['javascript', 'javascript.jsx', 'typescript.tsx']
 
 [[plugins]]
 repo = 'neovim/node-host'
-on_ft = ['javascript', 'javascript.jsx']
+on_ft = ['javascript', 'javascript.jsx', 'typescript.tsx']
 hook_post_update = '''
   let g:dein#plugin.build = 'npm install'
 '''
@@ -170,7 +173,7 @@ hook_post_update = '''
 repo = 'billyvg/tigris.nvim'
 if = "has('nvim')"
 depends = ['node-host']
-on_ft = ['javascript', 'javascript.jsx']
+on_ft = ['javascript', 'javascript.jsx', 'typescript.tsx']
 hook_post_update = '''
   let g:dein#plugin.build = './install.sh'
 '''
@@ -179,10 +182,6 @@ hook_add = '''
   let g:tigris#on_the_fly_enabled = 1
   let g:tigris#delay = 300
 '''
-
-[[plugins]]
-repo = 'MaxMEllon/vim-jsx-pretty'
-on_ft = 'javascript'
 
 # C++
 
@@ -207,7 +206,7 @@ on_event = ['FocusLost', 'CursorHold']
 hook_add = '''
     let g:ale_linters = {
     \   'javascript': ['eslint'],
-    \   'typescript.tsx' : ['tslint'],
+    \   'tsx' : ['tslint'],
     \   'json' : ['prettier'],
     \   'python': ['flake8'],
     \   'review': ['redpen'],
@@ -215,7 +214,7 @@ hook_add = '''
 
     let g:ale_fixers = {
     \   'javascript' : ['prettier'],
-    \   'typescript.tsx' : ['prettier'],
+    \   'tsx' : ['prettier'],
     \   'json' : ['prettier'],
     \   'cpp' : ['cpplint'],
     \   'python': ['autopep8'],
