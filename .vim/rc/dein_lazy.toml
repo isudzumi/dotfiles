@@ -266,7 +266,9 @@ repo = 'kannokanno/previm'
 on_ft = 'markdown'
 hook_add = '''
     if has('win32') || has('win64')
-        g:previm_open_cmd = 'start'
+        let g:previm_open_cmd = 'start'
+    elseif has('mac')
+        let g:previm_open_cmd = 'open'
     endif
     augroup PrevimSettings
     autocmd!
