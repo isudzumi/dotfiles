@@ -17,6 +17,9 @@ hook_post_source='''
 '''
 
 [[plugins]]
+repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = '''
     let g:quickrun_config = {
