@@ -20,12 +20,11 @@
     back = reset --hard HEAD
     last = log -n 1
     vup = !git checkout master && npm version patch && git push origin master --follow-tags
-    see = browse
     difl = diff HEAD~
 [filter "lfs"]
     clean = git-lfs clean -- %f
-    smudge = git-lfs smudge -- %f
-    process = git-lfs filter-process
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
     required = true
 [push]
 	default = simple
