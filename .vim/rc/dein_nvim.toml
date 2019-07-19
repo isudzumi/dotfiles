@@ -42,18 +42,14 @@ repo = 'carlitux/deoplete-ternjs'
 on_ft = 'javascript'
 if = "has('python3') && has('nvim')"
 depends = ['deoplete.nvim']
-hook_post_update = """
-    call system("npm i -g tern")
-"""
+build = 'npm i -g tern'
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
 on_event = 'InsertEnter'
 depends = ['deoplete.nvim']
 rev = 'next'
-hook_post_update = """
-    call system("bash install.sh")
-"""
+build = 'sh install.sh'
 hook_add = """
     set hidden
     set runtimepath+=~/.vim/dein/repos/github.com/autozimu/LanguageClient-neovim
