@@ -42,3 +42,5 @@ if [ `uname -s` = "Linux" ]; then
   keychain --nogui -q ~/.ssh/id_rsa
   source ~/.keychain/`uname -n`-sh
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
