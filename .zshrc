@@ -1,4 +1,7 @@
-DOTDIR=$(dirname $(readlink ~/.zshrc))
+if [ $(uname -s) = 'Darwin' ]; then
+    alias readlink=greadlink
+fi
+DOTDIR=$(dirname $(readlink -f ~/.zshrc))
 
 # Prezto setting
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
@@ -27,6 +30,21 @@ if [ $(uname -s) = 'Linux' ]; then
   source ~/.keychain/`uname -n`-sh
 fi
 
+if [ -d $HOME/.cargo ]; then
+  source "$HOME/.cargo/env"
+fi
+
+if [ -d $HOME/.deno ]; then
+  export PATH="$HOME/.deno/bin:$PATH"
+  export DENO_DIR="$HOME/.deno"
+fi
+
 if [ -f $DOTDIR/.alias ]; then
   source "$DOTDIR/.alias"
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ito/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/ito/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ito/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/ito/google-cloud-sdk/completion.zsh.inc'; fi
