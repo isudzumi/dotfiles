@@ -58,11 +58,6 @@ endif
 "ここから拝借->http://www.kawaz.jp/pukiwiki/?vim
 "-------------------------------------------------------------------------
 
-" viとの互換性を無効化する
-if !&compatible
-  set nocompatible
-endif
-
 "タブ設定
 set expandtab
 set tabstop=4
@@ -174,11 +169,5 @@ elseif has('nvim')
     endif
     if (has('win32') || has('win64'))
         let g:python3_host_prog = expand('$HOME/.pyenv/versions/neovim3/bin/python')
-    elseif has('mac') && executable('pyenv')
-        let g:python3_host_prog = expand("$HOME/.pyenv/shims/python")
     endif
-endif
-
-if (has('mac') && has('nvim'))
-    let g:node_host_prog = expand('/Users/ito/.nodenv/shims/node')
 endif

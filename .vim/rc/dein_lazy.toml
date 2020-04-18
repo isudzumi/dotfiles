@@ -294,3 +294,8 @@ on_ft = 'review'
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 on_event = 'VimEnter'
+hook_post_source = 'let g:indentLine_setConceal = 0'
+
+[[plugins]]
+repo = 'machakann/vim-sandwich'
+on_event = 'FocusLost'
