@@ -1,4 +1,4 @@
-DOTDIR=$(dirname $(readlink ~/.bashrc))
+DOTDIR=~/$(dirname $(readlink ~/.bashrc))
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -109,8 +109,6 @@ fi
 
 EDITOR=nvim
 
-# GO lang
-export GOPATH=~/go
-export PATH=$PATH:$GOPATH/bin
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-export DISPLAY=localhost:0.0
+eval "$(starship init bash)"
