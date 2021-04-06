@@ -3,7 +3,9 @@ alias la='ls -A'
 alias l='ls -CF'
 if type nvim > /dev/null 2>&1; then
   alias vi=nvim
-  alias less=/usr/local/Cellar/neovim/0.2.2_1/share/nvim/runtime/macros/less.sh
+fi
+if type bat > /dev/null 2>&1; then
+  alias less='bat --paging always'
 fi
 alias cls='clear'
 if type hub > /dev/null 2>&1; then
