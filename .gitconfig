@@ -19,12 +19,21 @@
     fp = !git fetch -p && git branch --merged | grep -v \\* | xargs -I % git branch -d %
     back = reset --hard HEAD
     last = log -n 1
+    recent = log -n 5 --oneline
     vup = !git checkout master && npm version patch && git push origin master --follow-tags
     difl = diff HEAD~
+    rmb = branch -D
+    s = switch
+    sc = switch -c
+    pf = push --force-with-lease
 [filter "lfs"]
     clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
     required = true
 [push]
-	default = simple
+    default = simple
+[pull]
+    rebase = true
+[fetch]
+    prune = true
