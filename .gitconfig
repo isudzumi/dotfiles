@@ -3,8 +3,8 @@
     excludesfile=~/.gitignore
 
 [user]
-    name = isudzumi
-    email = isudzumi@gmail.com
+    name = Hiroaki ITO
+    email = mail@isudzumi.com
 
 [alias]
     st = status
