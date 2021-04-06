@@ -25,8 +25,3 @@ if type ghq > /dev/null 2>&1; then
   alias gg='ghq get -p'
   alias gr='cd $(ghq list --full-path | fzf)'
 fi
-
-if type python > /dev/null 2>&1; then
-  alias python=/usr/local/bin/python3
-  alias pip=/usr/local/bin/pi3
-fi
