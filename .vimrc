@@ -70,12 +70,20 @@ set fileencoding=utf-8
 "行数表示
 set nu
 "クリップボードを使う
-if !has('nvim')
-    set clipboard=unnamed
-else
-    set clipboard=unnamed
-    set clipboard+=unnamedplus
-endif
+set clipboard&
+set clipboard^=unnamedplus
+let g:clipboard = {
+    \   'name': 'clipboard',
+    \   'copy': {
+    \      '+': 'win32yank.exe -i --crlf',
+    \      '*': 'win32yank.exe -i --crlf',
+    \    },
+    \   'paste': {
+    \      '+': 'win32yank.exe -o --lf',
+    \      '*': 'win32yank.exe -o --lf',
+    \   },
+    \   'cache_enabled': 1,
+    \ }
 "_viminfoファイルの保存先
 if has('win32') || has('win64')
     set viminfo+=n$VIM/_viminfo
