@@ -38,3 +38,5 @@
     rebase = true
 [fetch]
     prune = true
+[rebase]
+    autoSquash = true
