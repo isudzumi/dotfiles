@@ -13,7 +13,6 @@
     cancel = reset --soft HEAD^
     b = branch
     co = checkout
-    cob = checkout -b
     com = checkout master
     plr = pull --rebase
     fp = !git fetch -p && git branch --merged | grep -v \\* | xargs -I % git branch -d %
