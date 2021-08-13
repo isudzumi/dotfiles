@@ -69,17 +69,22 @@ rev = 'next'
 build = 'sh install.sh'
 hook_add = """
     set hidden
-    set runtimepath+=~/.vim/dein/repos/github.com/autozimu/LanguageClient-neovim
+    set runtimepath+=~/.vim/dein/repos/github.com/autozimu/LanguageClient-neovim_next
     let g:LanguageClient_serverCommands = {
         \ 'javascript': ['javascript-typescript-stdio'],
-        \ 'typescript.tsx': ['javascript-typescript-stdio'],
-        \ 'typescript': ['javascript-typescript-stdio'],
+        \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
+        \ 'typescript': ['typescript-language-server', '--stdio'],
         \ 'python': ['pyls'],
+        \ 'go': ['gopls'],
+        \ 'cpp': ['clangd'],
+        \ 'c': ['clangd'],
+        \ 'rust': ['rls'],
         \ }
     let g:LanguageClient_fzfContextMenu = 0
     let g:LanguageClient_autoStart = 1
     set completefunc=LanguageClient#complete
     set formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+    " autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
 
     nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
     nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>

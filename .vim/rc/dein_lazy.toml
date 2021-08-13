@@ -1,10 +1,12 @@
 [[plugins]]
 repo = 'Shougo/neomru.vim'
+if = "!has('nvim')"
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 build = 'make'
 on_source = ['unite.vim', 'vimshell.vim']
+if = "!has('nvim')"
 
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
@@ -87,6 +89,7 @@ hook_source = '''
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 depends = ['neosnippet-snippets', 'context_filetype.vim']
+if = "!has('nvim')"
 on_event = 'InsertCharPre'
 on_ft = 'snippet'
 hook_add = '''
@@ -99,10 +102,12 @@ hook_add = '''
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
+if = "!has('nvim')"
 depends = 'neomru.vim'
 
 [[plugins]]
 repo = 'Shougo/vimfiler.vim'
+if = "!has('nvim')"
 depends='unite.vim'
 on_if = "isdirectory(bufname('%'))"
 
@@ -182,21 +187,6 @@ hook_add = '''
   let g:tigris#on_the_fly_enabled = 1
   let g:tigris#delay = 300
 '''
-
-# C++
-
-[[plugins]]
-repo = 'justmao945/vim-clang'
-on_ft = 'cpp'
-if = "executable('clang')"
-hook_add = '''
-    let g:clang_c_options = '-std=c11'
-    let g:clang_cpp_options = '-std=c++1z'
-    let g:clang_format_auto = 1
-    let g:clang_format_style = 'Google'
-    let g:clang_check_syntax_auto = 1
-'''
-
 # syntax check
 
 [[plugins]]
@@ -290,11 +280,6 @@ hook_post_source = '''
 [[plugins]]
 repo = 'moro/vim-review'
 on_ft = 'review'
-
-[[plugins]]
-repo = 'Yggdroot/indentLine'
-on_event = 'VimEnter'
-hook_post_source = 'let g:indentLine_setConceal = 0'
 
 [[plugins]]
 repo = 'machakann/vim-sandwich'
