@@ -1,7 +1,7 @@
 #!/bin/bash
 ln -sf ~/dotfiles/.vimrc ~/.vimrc
 ln -sf ~/dotfiles/.vim ~/.vim
-ln -sf ~/dotfiles/.gitconfig ~/.gitconfig
+ln -sf ~/dotfiles/git/ $XDG_CONFIG_HOME/git/
 ln -sf ~/dotfiles/.bashrc ~/.bashrc
 ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
 mkdir -p ~/.config/nvim
