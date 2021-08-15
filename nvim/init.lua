@@ -1,6 +1,7 @@
 require('plugins')
 
-vim.o.nu = true
+vim.o.number = true
+vim.o.relativenumber = true
 vim.o.shiftwidth = 4
 vim.o.completeopt = 'menuone,noinsert,noselect'
 vim.o.shortmess = vim.o.shortmess .. 'c'
