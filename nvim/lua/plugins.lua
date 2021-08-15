@@ -5,6 +5,17 @@ require('packer').startup(function()
     use {'nvim-lua/completion-nvim'}
     use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/plenary.nvim'}}}
     use {'windwp/nvim-autopairs'}
+    use {'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        event = 'VimEnter',
+        config = function()
+            require('lualine').setup {
+                options = {
+                    theme = 'iceberg_dark'
+                }
+            }
+        end
+    }
 end)
 
 require'nvim-treesitter.configs'.setup {
