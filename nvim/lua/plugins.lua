@@ -2,25 +2,39 @@ require('packer').startup(function()
     use 'wbthomason/packer.nvim'
     use {'neovim/nvim-lspconfig'}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-    use {'nvim-lua/completion-nvim'}
-    use {'nvim-telescope/telescope.nvim', requires = {{'nvim-lua/plenary.nvim'}}}
-    use {'windwp/nvim-autopairs'}
-    use {'hoob3rt/lualine.nvim',
-        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+    use {'nvim-lua/completion-nvim', event = 'VimEnter' }
+    use {'nvim-telescope/telescope.nvim',
         event = 'VimEnter',
+        requires = {{'nvim-lua/plenary.nvim'}},
         config = function()
-            require('lualine').setup {
-                options = {
-                    theme = 'iceberg_dark'
+            require('telescope').setup {
+                defaults = {
+                    mappings = {
+                        n = {
+                            ["<esc>"] = require('telescope.actions').close
+                        }
+                    }
                 }
             }
+            vim.api.nvim_set_keymap('n', '<space>;',"<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap=true, silent=true })
+            vim.api.nvim_set_keymap('n', '<space>g',"<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap=true, silent=true })
         end
+    }
+    use {'windwp/nvim-autopairs',
+        event = 'VimEnter',
+        config = function()
+            require('nvim-autopairs').setup{}
+        end
+    }
+    use {'hoob3rt/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
     }
 end)
 
 require'nvim-treesitter.configs'.setup {
     hightlight = {
-	enable = true
+        enable = true,
+        additional_vim_regex_highlighting = false,
     },
     indent = {
 	enable = true
@@ -83,16 +97,8 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-require('telescope').setup {
-    defaults = {
-        mappings = {
-	    n = {
-		["<esc>"] = require('telescope.actions').close
-	    }
-        }
+require('lualine').setup {
+    options = {
+	theme = 'iceberg_dark'
     }
 }
-vim.api.nvim_set_keymap('n', '<space>;',"<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap=true, silent=true })
-vim.api.nvim_set_keymap('n', '<space>g',"<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap=true, silent=true })
-
-require('nvim-autopairs').setup{}
