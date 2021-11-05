@@ -41,3 +41,5 @@
     autoSquash = true
 [commit]
     gpgSign = true
+[init]
+    defaultBranch = main
