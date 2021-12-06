@@ -29,6 +29,9 @@ require('packer').startup(function()
     use {'hoob3rt/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
     }
+    use {'editorconfig/editorconfig-vim',
+        event = 'VimEnter',
+    }
 end)
 
 require'nvim-treesitter.configs'.setup {
