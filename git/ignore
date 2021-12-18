@@ -3,3 +3,6 @@ dein/
 
 #execution file
 *.exe
+
+# Windows
+*:Zone.Identifier
