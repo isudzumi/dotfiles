@@ -32,6 +32,7 @@ require('packer').startup(function()
     use {'editorconfig/editorconfig-vim',
         event = 'VimEnter',
     }
+    use {'EdenEast/nightfox.nvim'}
 end)
 
 require'nvim-treesitter.configs'.setup {
@@ -100,8 +101,11 @@ for _, lsp in ipairs(servers) do
   }
 end
 
+require('nightfox').load('duskfox')
+
 require('lualine').setup {
     options = {
-	theme = 'iceberg_dark'
+	theme = 'nightfox'
     }
 }
+
