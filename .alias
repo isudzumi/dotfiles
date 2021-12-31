@@ -1,9 +1,6 @@
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-if type nvim > /dev/null 2>&1; then
-  alias vi=nvim.appimage
-fi
 if type bat > /dev/null 2>&1; then
   alias less='bat --paging always'
 fi
