@@ -36,7 +36,7 @@ require('packer').startup(function()
 end)
 
 require'nvim-treesitter.configs'.setup {
-    hightlight = {
+    highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
     },
