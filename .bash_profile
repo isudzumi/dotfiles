@@ -18,15 +18,9 @@ if [ -d "~/.poetry/env" ]; then
     . "~/.poetry/env"
 fi
 
-. ~/.env.local
+. "$HOME/.cargo/env"
 
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
+. ~/.env.local
 
 # set PATH so it includes user's private bin if it exists
 if [ -f "$HOME/bin" ] ; then
@@ -38,19 +32,17 @@ mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
 mkdir -p ${XDG_CACHE_HOME:=$HOME/.cache}
 mkdir -p ${XDG_DATA_HOME:=$HOME/.local/share}
 
-# if [ `uname -s` = "Linux" ]; then
-#   keychain --nogui -q ~/.ssh/id_rsa
-#   source ~/.keychain/`uname -n`-sh
-# fi
-
 export PATH="$HOME/.cargo/bin:$PATH"
-
-# if [ -z $TMUX ]; then
-#     exec tmux
-# fi
-
-export PATH="$HOME/.poetry/bin:$PATH"
 export PATH=/usr/lib/llvm-10/bin:$PATH
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="~/.deno/bin:$PATH"
+export PATH="~/.fnm:$PATH"
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi

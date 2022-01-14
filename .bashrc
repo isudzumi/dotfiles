@@ -111,6 +111,7 @@ EDITOR=nvim
 
 eval "$(starship init bash)"
 eval "$(direnv hook bash)"
+eval "$(fnm env --use-on-cd)"
 
 export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
 ss -a | grep -q $SSH_AUTH_SOCK
