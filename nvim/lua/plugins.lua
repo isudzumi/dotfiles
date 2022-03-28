@@ -39,6 +39,8 @@ require('packer').startup(function()
     use {'EdenEast/nightfox.nvim'}
 end)
 
+require('nightfox').load('duskfox')
+
 require'nvim-treesitter.configs'.setup {
     highlight = {
         enable = true,
@@ -131,8 +133,6 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
-
-require('nightfox').load('duskfox')
 
 require('lualine').setup {
     options = {
