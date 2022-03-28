@@ -17,8 +17,11 @@ require('packer').startup(function()
                     }
                 }
             }
-            vim.api.nvim_set_keymap('n', '<space>;',"<cmd>lua require('telescope.builtin').find_files()<CR>", { noremap=true, silent=true })
+            vim.api.nvim_set_keymap('n', '<space>;' ,"<cmd>lua require('telescope.builtin').find_files({find_command={'rg', '--files'}})<CR>", { noremap=true, silent=true })
             vim.api.nvim_set_keymap('n', '<space>g',"<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap=true, silent=true })
+            vim.api.nvim_set_keymap('n', '<space>o',"<cmd>lua require('telescope.builtin').oldfiles()<CR>", { noremap=true, silent=true })
+            vim.api.nvim_set_keymap('n', '*', "<cmd>lua require('telescope.builtin').lsp_references()<CR>", { noremap=true, silent=true })
+            vim.api.nvim_set_keymap('n', '<space>tr', "<cmd>lua require('telescope.builtin').treesitter()<CR>", { noremap=true, silent=true })
         end
     }
     use {'windwp/nvim-autopairs',
