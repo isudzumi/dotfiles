@@ -39,7 +39,7 @@ require('packer').startup(function()
     use {'EdenEast/nightfox.nvim'}
 end)
 
-require('nightfox').load('duskfox')
+vim.cmd('colorscheme duskfox')
 
 require'nvim-treesitter.configs'.setup {
     highlight = {
