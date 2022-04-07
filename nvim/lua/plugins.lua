@@ -4,6 +4,9 @@ require('packer').startup(function()
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/playground'}
     use {'nvim-lua/completion-nvim', event = 'VimEnter' }
+    use {'nvim-telescope/telescope-file-browser.nvim',
+        event = 'VimEnter',
+    }
     use {'nvim-telescope/telescope.nvim',
         event = 'VimEnter',
         requires = {{'nvim-lua/plenary.nvim'}},
@@ -15,13 +18,17 @@ require('packer').startup(function()
                             ["<esc>"] = require('telescope.actions').close
                         }
                     }
-                }
+                },
             }
+
+            require('telescope').load_extension 'file_browser'
+
             vim.api.nvim_set_keymap('n', '<space>;' ,"<cmd>lua require('telescope.builtin').find_files({find_command={'rg', '--files'}})<CR>", { noremap=true, silent=true })
             vim.api.nvim_set_keymap('n', '<space>g',"<cmd>lua require('telescope.builtin').live_grep()<CR>", { noremap=true, silent=true })
             vim.api.nvim_set_keymap('n', '<space>o',"<cmd>lua require('telescope.builtin').oldfiles()<CR>", { noremap=true, silent=true })
             vim.api.nvim_set_keymap('n', '*', "<cmd>lua require('telescope.builtin').lsp_references()<CR>", { noremap=true, silent=true })
             vim.api.nvim_set_keymap('n', '<space>tr', "<cmd>lua require('telescope.builtin').treesitter()<CR>", { noremap=true, silent=true })
+            vim.api.nvim_set_keymap('n', '<space>d', "<cmd>lua require('telescope').extensions.file_browser.file_browser({ path='%:p:h', cwd_to_path=true })<CR>", { noremap=true, silent=true })
         end
     }
     use {'windwp/nvim-autopairs',
