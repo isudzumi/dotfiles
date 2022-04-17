@@ -15,6 +15,7 @@
 	com = checkout master
 	plr = pull --rebase
 	fp = !git fetch -p && git branch --merged | grep -v \\* | xargs -I % git branch -d %
+	fix = commit --fixup HEAD
 	back = reset --hard HEAD
 	last = log -n 1
 	recent = log -n 5 --oneline
@@ -25,6 +26,7 @@
 	sc = switch -c
 	pf = push --force-with-lease
 	fcm = commit --fixup HEAD
+	ri = rebase -i master
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
