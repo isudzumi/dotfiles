@@ -107,7 +107,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-EDITOR=nvim
+EDITOR=editor
 
 eval "$(starship init bash)"
 eval "$(direnv hook bash)"
