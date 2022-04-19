@@ -3,7 +3,6 @@ require('packer').startup(function()
     use {'neovim/nvim-lspconfig'}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/playground'}
-    use {'nvim-lua/completion-nvim', event = 'VimEnter' }
     use {'nvim-telescope/telescope-file-browser.nvim',
         event = 'VimEnter',
     }
