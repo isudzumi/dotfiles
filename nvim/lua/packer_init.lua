@@ -3,12 +3,9 @@ require('packer').startup(function()
     use {'neovim/nvim-lspconfig'}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/playground'}
-    use {'nvim-telescope/telescope-file-browser.nvim',
-        event = 'VimEnter',
-    }
     use {'nvim-telescope/telescope.nvim',
-        event = 'VimEnter',
-        requires = {{'nvim-lua/plenary.nvim'}},
+        event = 'VimEnter *',
+        requires = {{'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-file-browser.nvim'}},
         config = function()
             require('telescope').setup {
                 defaults = {
@@ -31,7 +28,7 @@ require('packer').startup(function()
         end
     }
     use {'windwp/nvim-autopairs',
-        event = 'VimEnter',
+        event = 'VimEnter *',
         config = function()
             require('nvim-autopairs').setup{}
         end
@@ -40,9 +37,24 @@ require('packer').startup(function()
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
     }
     use {'editorconfig/editorconfig-vim',
-        event = 'VimEnter',
+        event = 'VimEnter *',
     }
     use {'EdenEast/nightfox.nvim'}
+    use {'hrsh7th/nvim-cmp',
+      event = 'VimEnter *',
+    }
+    use {'hrsh7th/cmp-buffer',
+      event = 'VimEnter *',
+    }
+    use {'hrsh7th/cmp-path',
+      event = 'VimEnter *',
+    }
+    use {'hrsh7th/cmp-nvim-lsp',
+      event = 'VimEnter *',
+      config = function()
+        require('plugins/lsp-config')
+      end
+    }
 end)
 
 vim.cmd('colorscheme duskfox')
