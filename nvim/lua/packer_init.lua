@@ -42,12 +42,15 @@ require('packer').startup(function()
     use {'EdenEast/nightfox.nvim'}
     use {'hrsh7th/nvim-cmp',
       event = 'VimEnter *',
-    }
-    use {'hrsh7th/cmp-buffer',
-      event = 'VimEnter *',
-    }
-    use {'hrsh7th/cmp-path',
-      event = 'VimEnter *',
+      requires = {
+        {'hrsh7th/cmp-buffer'},
+        {'hrsh7th/cmp-path'},
+        {'hrsh7th/cmp-nvim-lsp'},
+        {'saadparwaiz1/cmp_luasnip'},
+      },
+      config = function()
+        require('plugins/nvim-cmp')
+      end
     }
     use {'hrsh7th/cmp-nvim-lsp',
       event = 'VimEnter *',
@@ -57,9 +60,6 @@ require('packer').startup(function()
     }
     use {'L3MON4D3/LuaSnip',
       event = 'VimEnter *',
-      config = function()
-        require('plugins/nvim-cmp')
-      end
     }
 end)
 
