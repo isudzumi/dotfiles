@@ -55,6 +55,12 @@ require('packer').startup(function()
         require('plugins/lsp-config')
       end
     }
+    use {'L3MON4D3/LuaSnip',
+      event = 'VimEnter *',
+      config = function()
+        require('plugins/nvim-cmp')
+      end
+    }
 end)
 
 vim.cmd('colorscheme duskfox')

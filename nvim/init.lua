@@ -27,4 +27,3 @@ vim.api.nvim_set_keymap('n', ';', ':', { noremap=true, silent=true })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap=true, silent=true })
 
 require('packer_init')
-require('plugins/lsp-config')
