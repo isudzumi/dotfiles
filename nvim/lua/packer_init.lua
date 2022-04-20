@@ -1,6 +1,5 @@
 require('packer').startup(function()
     use 'wbthomason/packer.nvim'
-    use {'neovim/nvim-lspconfig'}
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/playground'}
     use {'nvim-telescope/telescope.nvim',
@@ -40,13 +39,23 @@ require('packer').startup(function()
         event = 'VimEnter *',
     }
     use {'EdenEast/nightfox.nvim'}
-    use {'hrsh7th/nvim-cmp',
+    use {'L3MON4D3/LuaSnip'}
+    use {'hrsh7th/cmp-buffer',
       event = 'VimEnter *',
       requires = {
-        {'hrsh7th/cmp-buffer'},
-        {'hrsh7th/cmp-path'},
-        {'hrsh7th/cmp-nvim-lsp'},
-        {'saadparwaiz1/cmp_luasnip'},
+        {'hrsh7th/nvim-cmp'}
+      }
+    }
+    use {'hrsh7th/cmp-path',
+      event = 'VimEnter *',
+      requires = {
+        {'hrsh7th/nvim-cmp'}
+      }
+    }
+    use {'saadparwaiz1/cmp_luasnip',
+      event = 'VimEnter *',
+      requires = {
+        {'hrsh7th/nvim-cmp'}
       },
       config = function()
         require('plugins/nvim-cmp')
@@ -54,12 +63,18 @@ require('packer').startup(function()
     }
     use {'hrsh7th/cmp-nvim-lsp',
       event = 'VimEnter *',
+      requires = {
+        {'hrsh7th/nvim-cmp'}
+      },
+      config = function()
+        require('plugins/nvim-cmp')
+      end
+    }
+    use {'neovim/nvim-lspconfig',
+      event = 'VimEnter *',
       config = function()
         require('plugins/lsp-config')
       end
-    }
-    use {'L3MON4D3/LuaSnip',
-      event = 'VimEnter *',
     }
 end)
 
@@ -116,4 +131,3 @@ require('lualine').setup {
 	theme = 'nightfox'
     }
 }
-
