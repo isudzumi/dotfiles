@@ -46,6 +46,7 @@ require('packer').startup(function()
         {'hrsh7th/nvim-cmp'}
       }
     }
+    use {'rafamadriz/friendly-snippets'}
     use {'hrsh7th/cmp-path',
       event = 'VimEnter *',
       requires = {
