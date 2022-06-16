@@ -21,15 +21,15 @@ export EDITOR=nvim
 fpath=(~/.zsh/completions $fpath) 
 autoload -U compinit && compinit
 
-eval "$(direnv hook zsh)"
-export PATH="$(dirname $(pyenv which pip)):$PATH"
+# eval "$(direnv hook zsh)"
+# export PATH="$(dirname $(pyenv which pip)):$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 export GHQ_ROOT=~/repo
 
-if [ $(uname -s) = 'Linux' ]; then
-  keychain --nogui -q ~/.ssh/id_rsa
-  source ~/.keychain/`uname -n`-sh
-fi
+# if [ $(uname -s) = 'Linux' ]; then
+#   keychain --nogui -q ~/.ssh/id_rsa
+#   source ~/.keychain/`uname -n`-sh
+# fi
 
 if [ -d $HOME/.cargo ]; then
   source "$HOME/.cargo/env"
@@ -72,9 +72,9 @@ export LSCOLORS=gxfxcxdxbxegedabagacad
 # uninstall by removing these lines or running `tabtab uninstall slss`
 [[ -f /Users/ito/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/ito/.config/yarn/global/node_modules/tabtab/.completions/slss.zsh
 
-if [[ -z "$TMUX" && ! -z "$PS1" ]]; then
-  exec tmux
-fi
+# if [[ -z "$TMUX" && ! -z "$PS1" ]]; then
+#   exec tmux
+# fi
 
 export BW_SESSION="7Qa1sN7X8MyKPVGnVwWNSLi5KF3bar/h/FKclwjcXvNGvDc1y/YBea2HHDj3AdqjZ7p6b8FS1O6+r8eN+4rUIQ=="
 
