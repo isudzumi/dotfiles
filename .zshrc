@@ -89,3 +89,5 @@ export PATH="$PATH:/Users/ito/.local/bin"
 
 # Created by `userpath` on 2019-12-03 05:21:01
 export PATH="$PATH:/Users/ito/.local/bin"
+
+eval "$(fnm env --use-on-cd)"
