@@ -21,7 +21,7 @@ export EDITOR=nvim
 fpath=(~/.zsh/completions $fpath) 
 autoload -U compinit && compinit
 
-# eval "$(direnv hook zsh)"
+eval "$(direnv hook zsh)"
 # export PATH="$(dirname $(pyenv which pip)):$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 export GHQ_ROOT=~/repo
