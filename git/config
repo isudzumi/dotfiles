@@ -40,6 +40,7 @@
 	prune = true
 [rebase]
 	autoSquash = true
+	updateRefs = true
 [commit]
 	gpgSign = true
 [init]
