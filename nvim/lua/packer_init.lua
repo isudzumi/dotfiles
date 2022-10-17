@@ -58,6 +58,14 @@ require('packer').startup(function()
       requires = {
         {'hrsh7th/nvim-cmp'}
       },
+    }
+    use {'hrsh7th/nvim-cmp',
+      event = 'VimEnter *',
+      after = {
+        {'neovim/nvim-lspconfig'},
+        {'hrsh7th/cmp-nvim-lsp'},
+        {'saadparwaiz1/cmp_luasnip'}
+      },
       config = function()
         require('plugins/nvim-cmp')
       end
@@ -67,12 +75,10 @@ require('packer').startup(function()
       requires = {
         {'hrsh7th/nvim-cmp'}
       },
-      config = function()
-        require('plugins/nvim-cmp')
-      end
     }
     use {'neovim/nvim-lspconfig',
       event = 'VimEnter *',
+      after = { 'cmp-nvim-lsp' },
       config = function()
         require('plugins/lsp-config')
       end
