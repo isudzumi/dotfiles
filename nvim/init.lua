@@ -2,7 +2,7 @@ vim.o.number = true
 vim.o.relativenumber = true
 vim.o.expandtab = true
 vim.o.shiftwidth = 4
-vim.o.completeopt = 'menuone,noinsert,noselect'
+vim.o.completeopt = table.concat({ 'menuone', 'noinsert', 'noselect' }, ',')
 vim.o.shortmess = vim.o.shortmess .. 'c'
 
 -- For WSL2 clipboard
