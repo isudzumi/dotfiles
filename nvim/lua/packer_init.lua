@@ -3,7 +3,7 @@ require('packer').startup(function()
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
     use {'nvim-treesitter/playground'}
     use {'nvim-telescope/telescope.nvim',
-        event = 'VimEnter *',
+        event = 'VimEnter',
         requires = {{'nvim-lua/plenary.nvim', 'nvim-telescope/telescope-file-browser.nvim'}},
         config = function()
             require('telescope').setup {
@@ -27,7 +27,7 @@ require('packer').startup(function()
         end
     }
     use {'windwp/nvim-autopairs',
-        event = 'VimEnter *',
+        event = 'VimEnter',
         config = function()
             require('nvim-autopairs').setup{}
         end
@@ -36,49 +36,26 @@ require('packer').startup(function()
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
     }
     use {'editorconfig/editorconfig-vim',
-        event = 'VimEnter *',
+        event = 'VimEnter',
     }
     use {'EdenEast/nightfox.nvim'}
     use {'L3MON4D3/LuaSnip'}
-    use {'hrsh7th/cmp-buffer',
-      event = 'VimEnter *',
-      requires = {
-        {'hrsh7th/nvim-cmp'}
-      }
-    }
     use {'rafamadriz/friendly-snippets'}
-    use {'hrsh7th/cmp-path',
-      event = 'VimEnter *',
-      requires = {
-        {'hrsh7th/nvim-cmp'}
-      }
-    }
-    use {'saadparwaiz1/cmp_luasnip',
-      event = 'VimEnter *',
-      requires = {
-        {'hrsh7th/nvim-cmp'}
-      },
-    }
     use {'hrsh7th/nvim-cmp',
-      event = 'VimEnter *',
-      after = {
-        {'neovim/nvim-lspconfig'},
-        {'hrsh7th/cmp-nvim-lsp'},
-        {'saadparwaiz1/cmp_luasnip'}
+      event = 'VimEnter',
+      requires = {
+        {'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp'},
+        {'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp'},
+        {'hrsh7th/cmp-buffer', after = 'nvim-cmp'},
+        {'hrsh7th/cmp-path', after = 'nvim-cmp'},
       },
       config = function()
         require('plugins/nvim-cmp')
       end
     }
-    use {'hrsh7th/cmp-nvim-lsp',
-      event = 'VimEnter *',
-      requires = {
-        {'hrsh7th/nvim-cmp'}
-      },
-    }
     use {'neovim/nvim-lspconfig',
-      event = 'VimEnter *',
-      after = { 'cmp-nvim-lsp' },
+      event = 'VimEnter',
+      requires = { 'hrsh7th/cmp-nvim-lsp' },
       config = function()
         require('plugins/lsp-config')
       end
