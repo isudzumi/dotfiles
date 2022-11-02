@@ -52,3 +52,5 @@
 	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [difftool]
 	prompt = false
+[ghq]
+	root = ~/repo
