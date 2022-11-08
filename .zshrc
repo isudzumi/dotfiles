@@ -93,3 +93,4 @@ export PATH="$PATH:/Users/ito/.local/bin"
 eval "$(fnm env --use-on-cd)"
 
 export "GPG_TTY=$(tty)"
+export PATH="/usr/local/sbin:$PATH"
