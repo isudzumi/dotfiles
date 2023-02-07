@@ -4,6 +4,7 @@ vim.o.expandtab = true
 vim.o.shiftwidth = 4
 vim.o.completeopt = table.concat({ 'menuone', 'noinsert', 'noselect' }, ',')
 vim.o.shortmess = vim.o.shortmess .. 'c'
+vim.o.diffopt = table.concat({ 'internal', 'filler', 'algorithm:histogram', 'indent-heuristic' }, ',')
 
 -- For WSL2 clipboard
 vim.g.clipboard = {
